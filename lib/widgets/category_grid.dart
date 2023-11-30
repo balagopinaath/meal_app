@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:meal_shop/model/category.dart';
 
 class CategoryGrid extends StatelessWidget {
-  const CategoryGrid({required this.category, required this.onSelectedCategory, super.key});
+  const CategoryGrid(
+      {required this.category, required this.onSelectedCategory, super.key});
 
   final Category category;
   final void Function() onSelectedCategory;
@@ -29,8 +30,8 @@ class CategoryGrid extends StatelessWidget {
         child: Text(
           category.title,
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
-            color: Theme.of(context).colorScheme.onBackground,
-          ),
+                color: Theme.of(context).colorScheme.onBackground,
+              ),
         ),
       ),
     );

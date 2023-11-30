@@ -3,15 +3,25 @@ import 'package:gap/gap.dart';
 import 'package:meal_shop/model/meal.dart';
 
 class MealDetailScreen extends StatelessWidget {
-  const MealDetailScreen({required this.meal, super.key});
+  const MealDetailScreen({required this.meal, required this.onToggleFavourite, super.key});
 
   final Meal meal;
+  final void Function(Meal meal) onToggleFavourite;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.title),
+        actions: [
+          IconButton(
+              onPressed: (){
+                onToggleFavourite(meal);
+                print(onToggleFavourite);
+              },
+              icon: Icon(Icons.star)
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -56,7 +66,7 @@ class MealDetailScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: Theme.of(context).colorScheme.onBackground),
                 ),
-              )
+              ),
           ],
         ),
       ),
