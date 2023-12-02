@@ -61,11 +61,19 @@ class _TabScreenState extends ConsumerState<TabScreen> {
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectedPage,
         currentIndex: _selectedPageIndex,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.set_meal), label: 'Categories'),
+            icon: _selectedPageIndex == 1
+                ? const Icon(Icons.set_meal)
+                : const Icon(Icons.set_meal_outlined),
+            label: 'Categories',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.star_border), label: 'Favourite'),
+            icon: _selectedPageIndex == 1
+                ? const Icon(Icons.star)
+                : const Icon(Icons.star_border),
+            label: 'Favourite',
+          ),
         ],
       ),
     );
